@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+    <div>
+        <p>Learning variable</p>
+    </div>
+</body>
+<script>
+    /** Phân biệt Var, Let, Const */
+
+    /** Tính chất 1: 
+     * Khi khai báo 1 biến với var, let hay const ở Global scope
+     * Biến có phạm vi hoạt động toàn cục
+    */
+    // var x = 1;
+    // let y = 2;
+    // const z = 3;
+    // console.log('1 for global scope',x,y,z)
+    // {
+    //     console.log('1 for local scope',x,y,z)
+    // }
+    // function i(){
+    //     console.log('1 for function scope',x,y,z)
+    // }
+    // i()
+    
+    /** Tính chất 2
+     * Khi khai báo 1 biến ở Local scope
+     * Var có phạm vi toàn cục
+     * Let, const có phạm vi từ scope hiện tại đến scope con
+    */
+
+    // {
+    //     var x = 1;
+    //     console.log('var',x)
+    // }
+    // console.log('var',x)
+    
+    // {
+    //     let y = 2;
+    //     const z = 3;
+    //     console.log('let',y);
+    //     console.log('const',z);
+    //     {
+    //         console.log('let',y);
+    //         console.log('const',z); 
+    //     }
+    // }
+    // console.log('let',y);
+    // console.log('const',z);
+    
+    /** Tính chất 3
+     * Khi khai báo ở function scope
+     * Var, Let , Const có phạm vi từ scope hiện tại đến scope con
+    */
+    
+    // function i(){
+    //     var x = 1;
+    //     let y = 2;
+    //     const z = 3;
+    //     console.log('var',x);
+    //     console.log('let',y);
+    //     console.log('const',z);
+    //     {
+    //         console.log('var',x);
+    //         console.log('let',y);
+    //         console.log('const',z);
+    //     };
+
+    //     function j(){
+    //         console.log('var',x);
+    //         console.log('let',y);
+    //         console.log('const',z);
+    //     };
+    //     j();
+
+    // }
+    // i()
+    // console.log('var',x);
+    // console.log('let',y);
+    // console.log('const',z);
+
+    /** Tính chất 4
+     * Giá trị khởi tạo 
+     * Var, Let là undefined
+     * Const là Missing initializer
+     */
+    // var x;
+    // let y;
+    // console.log('var',x);
+    // console.log('let',y);
+    // const z;
+    // console.log('const',z);
+    
+    /** 
+     * Tính chất 5
+     * Re assign : gán giá trị khác cho biến
+     * Var && Let có 
+     * Const không
+    */
+    // var x = 1;
+    // let y = 2;
+    // x = 'số một';
+    // y = 'số hai';
+    // console.log('var',x);
+    // console.log('let',y);
+    // const z = 3;
+    // z = 'số 3';
+    // console.log('const', z);    
+
+    /** 
+     * Tính chất 6
+     * Re declare : tái khởi tạo biến
+     * Var có
+     * Let && Const không
+    */
+    // var x = 1;
+    // var x = 'số một';
+    // console.log('var',x);
+    // let y = 2;
+    // let y = 'số hai';
+    // console.log('let',y);
+    // const z = 3;
+    // const z = 'số ba';
+    // console.log('ccnst',z);
+
+    /** Tính chất 7
+     * Hoisting : một biến có thể được khai báo sau khi sử dụng
+     * Trình biên dịch của Javascript sẽ
+        chuyển phần khai báo của biến và hàm lên trên top, 
+        nó được gọi là Hoisting
+    */
+    console.log(a);
+    var a = 'Hello Hoisting';
+
+    /** Qui tắc đặt tên biến */
+    /** 
+     * Không được bắt đầu bầng số
+     * Không chứ ký tự đặc biệt ( trừ $ và _ )
+     * Không được trùng với các từ khóa 
+    */
+
+    /** 
+     * Đặt tên biến theo kiểu camel : var firstName
+     * Đặt tên biến theo kiểu snake : var first_name
+    */
+
+
+</script>
+<style></style>
+</html>
+<!-- 
+Scope là phạm vi truy cập của biến
+
+Global scope
+ * Là Scope lớn nhất trong file
+ * Khi 1 biến được khai báo ở global scope , ta gọi đó là biến toàn cục ( global )
+ * Biến được khái báo ở function scope có thẻ được truy cập ở bất kì đâu
+
+Local Scope / Block Scope
+ * Tất cả các scope có dạng {...} , if {...} , for { ... }
+ * Khi 1 biến được khai báo bên trong Local scope, ta gọi đó là biến cục bộ ( local )
+
+Function scope
+ * Những scope được tạo bởi function 
+
+Closure / Lexical scope / Static scope  
+ * Những function scope nằm bên trong một function scope khác
+ * Bất cứ biến của parent scope đều có thể truy cập bởi child scope, nhưng ngược lại thì không
+    
+
+ -->

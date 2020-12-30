@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://carly.com.vn/blog/the-meta/ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script type="text/javascript" src="my-script.js"></script> -->
+    <title>Intro</title>
+</head>
+<body>
+
+    <div>
+        <p id="one">Number One</p>
+        <p class="two">Number Two</p>
+        <p id="three_id" class="three_class"></p>
+    </div>
+
+    <div>
+        <p class="hello">Hello World</p>
+        <p id="demo"></p>
+        <button id="createText">Generate text</button>
+        <button id="removeText">Remove text</button>
+    </div>
+
+    <div>
+        <p id="number">0</p>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+    </div>
+</body>
+
+<!-- Thẻ script có thể được đặt ở trong head, body hoặc bên ngoài -->
+<script>
+        document.getElementById("createText").addEventListener("click", function() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        });
+        document.getElementById("removeText").addEventListener("click", function() {
+            document.getElementById("demo").innerHTML = "";
+        });    
+        
+        document.getElementById("plus").addEventListener("click", function() {
+            let x = document.getElementById("number").innerText;
+            let result = Number(x)+ 1
+            document.getElementById("number").innerHTML = `${result}`;
+        });
+        document.getElementById("minus").addEventListener("click", function() {
+            let x = document.getElementById("number").innerText;
+            let result = Number(x) - 1
+            document.getElementById("number").innerHTML = `${result}`;
+        });                   
+        
+</script>
+
+<style>
+    /* inline-style -- id -- class -- tag */
+    /* Style for Tag */
+    body {
+        background-color: grey;
+    }
+    p {
+        color: red;
+    }
+    /* Style for ID */
+    #one {
+        color: red;
+    }
+    #three_id {
+        color:orange;
+    }
+    /* Style for Class */
+    .two {
+        color: blue;
+    }
+    .three_class {
+        color: green
+    }
+</style>
+
+</html>
