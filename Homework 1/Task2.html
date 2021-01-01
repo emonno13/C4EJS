@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="firstNum">
+        <input type="text" id="secondNum">
+        <p>Result <span id="result"></span></p>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+        <button id="multiple">x</button>
+        <button id="divide">:</button>
+    </div>
+</body>
+
+<script>
+    document.getElementById('plus').addEventListener('click',function(){
+        let x = document.getElementById('firstNum').value;
+        let y = document.getElementById('secondNum').value;
+        let result = Number(x) + Number(y);
+        document.getElementById('result').innerHTML = result;
+        console.log('Result :',result);
+    });
+        document.getElementById('minus').addEventListener('click',function(){
+        let x = document.getElementById('firstNum').value;
+        let y = document.getElementById('secondNum').value;
+        let result = Number(x) - Number(y);
+        document.getElementById('result').innerHTML = result;
+        console.log('Result :',result);        
+    });
+    document.getElementById('multiple').addEventListener('click',function(){
+        let x = document.getElementById('firstNum').value;
+        let y = document.getElementById('secondNum').value;
+        let result = Number(x)*Number(y);
+        document.getElementById('result').innerHTML = result;
+        console.log('Result :',result);
+    });
+    document.getElementById('divide').addEventListener('click',function(){
+        let x = document.getElementById('firstNum').value;
+        let y = document.getElementById('secondNum').value;
+        let result = Number(x)/Number(y);
+        document.getElementById('result').innerHTML = result;
+        console.log('Result :',result);
+    });
+
+</script>
+</html>

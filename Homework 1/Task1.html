@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>1.1 Examles about invalid names :</h1>
+        <ul>
+            <li>let a-b-c;</li>
+            <li>let break;</li>
+            <li>let 3Monkey;</li>
+        </ul>
+        <h2>1.2 How to check a variable data types ?</h2>
+        <ul>
+            <li>type of</li>
+        </ul>
+        <h2>2  Review about HTML, CSS, JavaScript function</h2>
+        <p>1 - b, 2 - a, 3 - e, 4 - c</p>
+    </div>
+</body>
+
+<script>
+    /* 1.2 */
+    // https://www.w3schools.com/js/js_datatypes.asp
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+    /** string, number, boolean , object, function , undefinded, symbol ,bigInt */
+    typeof "John"                 // Returns string 
+    typeof 3.14                   // Returns number
+    typeof NaN                    // Returns number
+    typeof false                  // Returns boolean
+    typeof [1, 2, 3, 4]           // Returns object
+    typeof {name:'John', age:34}  // Returns object
+    typeof new Date()             // Returns object
+    typeof function () {}         // Returns function
+    typeof myCar                  // Returns undefined 
+    typeof 1234567890123456789012345678901234567890n // Return bigint
+    typeof Symbol("id") // Return symbols
+    typeof undefined           // undefined
+    typeof null                // object
+    null === undefined         // false
+    null == undefined          // true
+
+    /* 3.a */
+    let message = 'Coding is great';
+    console.log('3.a: ', message)
+    /* 3.b */
+    let studentCount = 0;
+    console.log('3.b: ', studentCount);
+    /* 4.a */
+    message = 'Coding might not be easy, but still great';
+    console.log('4.a: ',message);
+    /* 4.b */
+    studentCount = 10;
+    console.log('4.b: ', studentCount);
+    /* 4.c */
+    console.log('4.c:', message.toLowerCase());
+    /* 4.d */
+    studentCount = studentCount + 1; // studentCount ++;
+    console.log('4.d:', studentCount);
+    /* 5 */
+    // alert('You look beautifull today');
+    /* 6 */
+    // let name = prompt('Hi there ! Your name please ?');
+    // alert(`Hi ${name}`);
+    /* 7 */
+    // let firstName = prompt('Enter your first name');
+    // let lastName = prompt('Enter your last name');
+    // alert(`Hi ${firstName + '' + lastName} `)
+    // alert(`Hi ${firstName} ${lastName}`)
+    /* 8 */
+    // let squareLength = prompt('Enter side length of a square ');
+    // alert(`The square area is ${squareLength*squareLength}`);
+    /* 9 */
+    // let radius = prompt('Enter the radius of the circle');
+    // let circleArea = 3.14*radius*radius;
+    // alert(`The circle area is ${circleArea.toFixed(2)}`);
+    /* 10 */
+    // let temperature = prompt('Enter the temperature in Celcius');
+    // alert(`${temperature} (C) -> ${(9/5)*temperature + 32} (F)`)
+
+</script>
+
+</html>
