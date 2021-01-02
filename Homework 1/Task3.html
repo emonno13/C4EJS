@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>First name:</p>
+        <input type="text" id="firstName" oninput="createFullName()">
+        <p>Last name:</p>
+        <input type="text" id="lastName" oninput="createFullName()">
+        <p>Full name:</p>
+        <p id="fullName"></p>
+    </div>
+</body>
+<script>
+    function createFullName(){
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        document.getElementById('fullName').innerHTML = firstName + ' ' + lastName;
+    }
+</script>
+</html>
