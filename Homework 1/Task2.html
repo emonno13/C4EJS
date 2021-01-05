@@ -9,8 +9,8 @@
     <div>
         <input type="text" id="firstNum">
         <input type="text" id="secondNum">
-        <p>Result <span id="result"></span></p>
-        <button id="plus">+</button>
+        <p>Result :<span id="result"></span></p>
+        <button id="plus" onclick="">+</button>
         <button id="minus">-</button>
         <button id="multiple">x</button>
         <button id="divide">:</button>
@@ -21,8 +21,9 @@
     document.getElementById('plus').addEventListener('click',function(){
         let x = document.getElementById('firstNum').value;
         let y = document.getElementById('secondNum').value;
+        console.log(x,y)
         let result = Number(x) + Number(y);
-        document.getElementById('result').innerHTML = result;
+        document.getElementById('result').textContent = result;
         console.log('Result :',result);
     });
         document.getElementById('minus').addEventListener('click',function(){
@@ -41,7 +42,7 @@
     });
     document.getElementById('divide').addEventListener('click',function(){
         let x = document.getElementById('firstNum').value;
-        let y = document.getElementById('secondNum').value;
+        let y = document.getElementById('secondNum').value; 
         let result = Number(x)/Number(y);
         document.getElementById('result').innerHTML = result;
         console.log('Result :',result);

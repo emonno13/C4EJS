@@ -7,16 +7,24 @@
 </head>
 <body>
     <div>Learning about Loop</div>
+    <input type="text" id="myNumber">
+    <p id="result"></p>
+    <button id="generate">Generate number 1</button>
+    <button onclick="generate()">Generate number 2</button>
+
+    <ul id="myList">
+        <!-- <li>my list</li> -->
+    </ul>
 </body>
 <script>
     /* ------------------------------ Theory --------------------------------------- */
 
-    // /** FOR LOOP */
-    // for (let i = 0; i < 10; i++) {
+    /** FOR LOOP */
+    // for (let i = 0; i < 10;i++) {
     //     console.log('For loop');
     //     document.write('For loop' +'<br >');
     // }
-    // /* WHILE LOOP */
+    /* WHILE LOOP */
     // let j = 0;
     // while(j < 10) {
     //     console.log('While loop');
@@ -40,12 +48,50 @@
 
     /* ------------------------------------ Practice  ------------------------------------*/
     // 1. Tạo vòng lặp in ra các số từ 1-20
+    // for(let x = 1; x <= 20 ; x++) {
+    //     console.log(x);
+    // };
     // 2. Tạo vòng lặp in ra các số từ 20-1
+        // for(let x = 20; x > 0; x--){
+        //     console.log(x)
+        // }
     // 3. Tạo vòng lặp in ra các số chẵn từ 0 đến 21 ( no if )
+        // for(let x=0; x< 21;x+=2){
+        //     console.log(x)
+        // }
     // 4. Tạo vòng lặp in ra các số lẽ từ 0 đến 21 ( no if )
+        //   for(let x = 1; x <= 21; x+=2){
+        //       console.log(x)
+        //   }
     // 5. Tạo vòng lặp in ra các số chia hết cho 5 từ 0 đến 40 ( no if )
+            // for(let x = 0; x <= 40; x+=5){
+            //     console.log(x)
+            // }
     // 6. Tạo vòng lặp in ra các số chia hết cho 5 từ 10 đến 50 ( no if )
+                // for(let x = 10; x<=50; x+=5){
+                //     console.log(x)
+                // }
     // 7. Tạo 1 ô input, 1 button. Khi nhấn vào button thì in các số từ 1 cho tới giá trị có trong ô input
+    // document.getElementById('generate').addEventListener('click',function () {
+    //      let x = document.getElementById('myNumber').value;
+    //      for(let i = 1; i <= x; i++){
+    //          console.log(i)
+    //      }
+    // }) 
+    
+    // function generate() {
+    //      let x = document.getElementById('myNumber').value;
+    //      let text = '';
+    //      for(let i = 1; i <= Number(x); i++){
+    //         //  console.log(i);
+    //         //  text = text + i +'</br>';
+    //         //  document.getElementById('result').innerHTML = text;
 
+    //         let node = document.createElement("LI");
+    //         let textnode = document.createTextNode(`${i}`);
+    //         node.appendChild(textnode);
+    //         document.getElementById("myList").appendChild(node);
+    //      }
+    //  }               
 </script>
 </html>

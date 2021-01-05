@@ -7,6 +7,11 @@
 </head>
 <body>
     <div>Learning about condition</div>
+    <input type="text" id="first"> x </input>
+    <input type="text" id="second"> y </input>
+    <input type="text" id="third"> z </input>
+    <p>Result <span id="result"></span></p>
+    <button onclick="findMax()">Find max</button>
 </body>
 <script>
     /* ------------------------------ Theory --------------------------------------- */
@@ -57,12 +62,82 @@
     
     /* ------------------------------------ Practice  ------------------------------------*/
     // 1. Cho người dùng nhập vào chiều cao, cân nặng. Tính ra chỉ số BMI dựa vào công thức, sau đó in ra thông báo tương ứng
+    
+    // let weight = prompt('Input weight:');
+    // let height = prompt('Input height:');
+    // let bmiResult = Number(weight)/(Number(height)*Number(height));
+    // console.log(bmiResult)
+    // switch (bmiResult) {
+    //     case bmiResult < 18.5:
+    //         console.log('Gầy')
+    //         break;
+    //     case bmiResult >= 18.5 && bmiResult <= 24.9:
+    //         console.log('Bình thường');
+    //         break;
+    //     case bmiResult >= 30 && bmiResult <= 34.9:
+    //         console.log('Hơi béo');
+    //     case bmiResult >= 35 && bmiResult <= 39.9:
+    //         console.log('Hơi béo');
+    //         break;
+    //     case bmiResult > 40:
+    //         console.log('Hơi béo');
+    //         break;
+    //     default:
+    //         console.log('Unknown');
+    //         break;
+    // }
+
     // 2. In ra các số chẵn từ 0 đến 21
+        // for(let x = 0; x <= 21; x++ ){
+        //    ( x % 2 === 0 ) ? console.log(x) : null;
+        // }
+
     // 3. In ra các số lẽ từ 0 đến 21
+        // for(let x = 0; x <= 21; x++ ){
+        //    ( x % 2 !== 0 ) ? console.log(x) : null;
+        // }
+        
     // 4. In ra các số chia hết cho 5 từ 0 đến 50
+        // for(let x = 0; x <= 21; x++ ){
+        //    ( x % 5 === 0 ) ? console.log(x) : null;
+        // }
+
     // 5. In ra các số vừa chia hết cho 3 vừa chia hết cho 2 từ 0 đến 50
+        // for(let x = 0; x <= 21; x++ ){
+        //    ( x % 2 === 0 && x % 3 === 0 ) ? console.log(x) : null;
+        // }
+
     // 6. Nhập vào 3 số, tìm số lớn nhất ( 2 cách - điều kiện đơn & điều kiện lồng)
-    // 7. Kiểm tra số vừa nhập có phải là Number hay không
+    // function findMax() {
+    //     let x = Number(document.getElementById('first').value);
+    //     let y = Number(document.getElementById('second').value);
+    //     let z = Number(document.getElementById('third').value);
+
+    //     // điều kiện lồng
+    //     if(x > y){
+    //         if(x > z) {
+    //             console.log(x);
+    //         }else if (y > z) {
+    //             console.log(y);
+    //         } else {
+    //             console.log(z);
+    //         }
+    //     } else {
+    //         if(y>z) {
+    //             console.log(y);
+    //         }else{
+    //             console.log(z);
+    //         }
+    //     }
+    // }
+
+    // 7. Kiểm tra ký tự vừa nhập có phải là Number hay không
+    // let s = prompt('Please input a number');
+    // if(Number(s)){
+    //     console.log('This is a number')
+    // }else{
+    //     console.log('This is not number - NaN')
+    // }
 
 </script>
 </html>
