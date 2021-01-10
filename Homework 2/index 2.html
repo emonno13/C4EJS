@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+    <title>Homework</title>
+</head>
+<style type="text/css">
+    /* @font-face {
+        font-family: 'Dosis', sans-serif;
+    } */
+    body {
+        color: #3caea3;
+        background-color: #2f2f2f;
+        font-family: 'Dosis', sans-serif;
+        font-size: 1.2rem;
+        font-weight: bold;
+        line-height: 12px;
+    }
+
+    div {
+        padding: 50px;
+    }
+
+    button {
+        font-size: 1rem;
+        line-height: 14px;
+        border-radius: 8px;
+        background-color: #ee5f9b;
+        color: #ffffff;
+        height: 32px;
+        max-width: 180px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    /* selector: button khong co class main */
+    button:not(.main) {
+        margin-left: 15px;
+        background-color: #3caea3;
+    }
+
+    input {
+        border-radius: 6px;
+        height: 24px;
+        max-width: 250px;
+        outline: none;
+        border: solid 1px #ee5f9b;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+    }
+    li {
+        padding: 5px 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    li>p {
+        display: block;
+        width: auto;
+    }
+    .hide {
+        display: none;
+    }
+</style>
+
+<body>
+    <div>
+        <h1 style="padding-bottom: 50px;">Task 3</h1>
+        <label>Nhập họ tên sinh viên: <input id="name" />
+            <br><br>
+            <label>Nhập lớp: <input id="class" />
+                <br><br>
+                <button class="main" id="add" onclick="themSV()">
+                    Thêm sinh viên
+                </button>
+    </div>
+    <div id="kqua">
+        <ul id="listSV">
+        </ul>
+    </div>
+</body>
+<script>
+    //Dùng DOM để tạo list danh sách SV (create <li>)
+    let student, studentClass, p, li, textList, delBtn, textBtn1, updateBtn, textBtn2, parentEle, list;
+    parentEle = document.getElementById("listSV"); /* <ul> với id=listSV là parent element của <li>*/
+    // thêm event cho button
+    document.getElementById("add").onclick = themSV;
+
+    // hàm thêm sv vào danh sách
+    function themSV() {
+        student = document.getElementById("name").value;
+        studentClass = document.getElementById("class").value;
+        if (student == "" || studentClass == "") {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+        }
+        else {
+            // document.getElementById("kqua").innerHTML = "Danh sách sinh viên vừa thêm:";
+            li = document.createElement("LI");
+            p = document.createElement("P");
+            textList = document.createTextNode(`${student} - ${studentClass}`);
+            // gan noi dung vao <li>
+            p.appendChild(textList);
+
+            //thêm button delete   
+            delBtn = document.createElement("BUTTON");
+            textBtn1 =  document.createTextNode("Delete");
+            delBtn.appendChild(textBtn1);
+            // gắn button vào <li> va gan class="delete-btn"
+            delBtn.className = "delete-btn";            
+          
+            //thêm button update
+            updateBtn = document.createElement("BUTTON");
+            textBtn2 = document.createTextNode("Update");
+            updateBtn.appendChild(textBtn2);
+            updateBtn.className = "update-btn";    
+
+            li.appendChild(p);
+            li.appendChild(delBtn);        
+            li.appendChild(updateBtn);
+
+            //gan <li> vao <ul>
+            parentEle.appendChild(li);     
+        }                    
+
+        
+        let delButton = document.getElementsByClassName("delete-btn");
+        for (let i= 0; i < delButton.length; i++) {                       
+            delButton[i].onclick = function() {
+                parentEle.removeChild(this.parentNode); /* <button> là child của <li>, this=button.parentNode =><li> tương ứng*/
+                // list[i].remove();
+            } 
+        }       
+        
+        let updateButton = document.getElementsByClassName("update-btn");
+        for (let k= 0; k < updateButton.length; k++) {            
+            updateButton[k].onclick = function() {    
+                list = document.getElementsByTagName("p");
+                list[k].className = "update";
+                let updateName = document.getElementById("name").value;
+                let updateClass = document.getElementById("class").value;
+                let newInfo = document.getElementsByClassName("update");
+                console.log(updateName + updateClass);
+                console.log(list[k]);
+                newInfo[k].textContent = `${updateName} - ${updateClass}`;
+            } 
+        }   
+    }
+   
+</script>
+
+</html>

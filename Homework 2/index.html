@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="student">
+        <button onclick="addStudent()">
+            Add
+        </button>
+        <ul id='studentList'>
+        </ul>
+    </div>
+</body>
+
+<script>
+    let studentList = '';
+    let studentId = 0;
+
+    document.getElementById("student").addEventListener('keyup',function (event) {
+          if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            addStudent();
+        }   
+    })
+
+
+    function deleteStudent(studentId) {
+
+        let value = document.getElementById(`${studentId}-content`).innerText;
+        document.getElementById(studentId).remove();
+        studentList = studentList.replace(
+                `
+                <li id="${studentId}">
+                    <button onClick="deleteStudent(${studentId})">Delete</button>
+                    <button onClick="updateStudent(${studentId})">Update</button>
+                    <p id="${studentId}-content">${value}</p>
+                </li>
+                `
+            ,'')
+    }
+
+
+    function updateStudent(studentId) {
+        let value = document.getElementById(`${studentId}-content`).innerText;
+        
+        let liContent = document.getElementById('student').value;
+        document.getElementById(`${studentId}-content`).innerHTML = 
+                `
+                    <p id="${studentId}-content">${liContent}</p>
+                `;
+        studentList = studentList.replace(
+                `
+                    <p id="${studentId}-content">${value}</p>
+                `
+            ,
+                `
+                    <p id="${studentId}-content">${liContent}</p>
+                `            
+            );
+    }
+
+    function addStudent() {
+            let value = document.getElementById('student').value;
+
+            //www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/
+            value = value.replace( /(<([^>]+)>)/ig, '');
+
+            if(!value) {
+              alert('Please input this field !!');
+              return;
+            }
+            studentId ++; 
+            
+            studentList += 
+                `
+                <li id="${studentId}">
+                    <button onClick="deleteStudent(${studentId})">Delete</button>
+                    <button onClick="updateStudent(${studentId})">Update</button>
+                    <p id="${studentId}-content">${value}</p>
+                </li>
+                `
+            // xxx attach
+            document.getElementById("studentList").innerHTML = studentList;
+    }
+</script>
+</html>

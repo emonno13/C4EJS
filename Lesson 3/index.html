@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Create */
+        const zoo01 = ['🐼', '🦁', '🐷', '🦊'];
+        const zoo02 = new Array('🐼', '🦁', '🐷', '🦊');        
+        const zoo03 = Array.of('🐼', null, '🦊', undefined);
+        const zoo04 = [].('🐼', '🦁', '🐷', '🦊');
+        
+        const zoo05 = [...zoo01]; // spread operator
+        const zoo06 = Array.from(zoo01);
+        const zoo07 = zoo01.map(item => item);
+
+        // debugger
+
+        /* Read */
+        let animal = zoo01[0];
+        console.log(animal);
+
+        for(let i = 0; i < zoo01.length ; i++){
+            console.log(zoo01[i])
+        };
+
+        zoo01.map((item,index)=> console.log(item))
+
+        /* Update */
+        zoo01[0] = '🦁';
+
+        /* Delete */
+        // removes the last element 
+        // var arr01 = [1, 2, 3, 4, 5, 6];
+        // arr01.pop(); // returns 6
+        // console.log( arr01 ); // [1, 2, 3, 4, 5]
+
+        // remove the first element
+        // var arr = ['zero', 'one', 'two', 'three'];
+        // ar.shift(); // returns "zero"
+        // console.log( ar ); // ["one", "two", "three"]
+
+        // Using Splice to Remove Array Elements
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        // var removed = arr.splice(0,1);
+        // console.log(arr);
+
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        for( var i = 0; i < arr.length; i++){ 
+            if ( arr[i] === 5) { 
+                arr.splice(i, 1); 
+            }
+        }
+        
+        // Using the Delete Operator
+        var ar = [1, 2, 3, 4, 5, 6];
+        delete ar[4]; // delete element with index 4
+        console.log( ar ); // [1, 2, 3, 4, undefined, 6]
+
+    </script>
+</body>
+</html>
