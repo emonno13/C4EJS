@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="student">
+        <button onclick="add()">
+            Add
+        </button>
+        <ul id='colors'>
+        </ul>
+    </div>
+</body>
+
+<script>
+    const basicColor = ['pink','purple','red','orange','yellow','green','cyan','blue','brown','white','black','grey'];
+    let colors = ['red','green','yellow'];
+    let colorId = 0;
+
+    function createDom(){
+        let html = '';
+            for( let i = 0;i < colors.length; i++){
+            html += 
+                `
+                <li id="${i}">
+                    <button onClick="remove(${i})">Remove</button>
+                    <button onClick="update(${i})">Update</button>
+                    <p id="${i}-content" style="color:${colors[i]};">${colors[i]}</p>
+                </li>
+                `;
+            document.getElementById("colors").innerHTML = html;
+            }
+    }
+
+    function isColor(strColor){
+        var s = new Option().style;
+        s.color = strColor;
+        return s.color == strColor;
+    }
+    function isColorInBasic(strColor) {
+        for(let i = 0; i<basicColor.length; i++){
+            if(basicColor[i] === strColor.toLowerCase()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Tạo danh sách 
+    createDom();
+
+    // Tạo sự kiện khi nhấn phím enter ở ô input
+    document.getElementById("student").addEventListener('keyup',function (event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+
+    function add() {
+            let value = document.getElementById('student').value;
+            value = value.replace( /(<([^>]+)>)/ig, '');
+
+            // Nếu giá trị ở ô input không phải là màu hoặc ko có giá trị nào được nhập thì xuất ra
+            if(!isColorInBasic(value) || !value) {
+              alert('Please input a color !!');
+              return;
+            }
+            colors.push(value);
+            createDom();
+    }
+
+    function remove(colorId) {
+        document.getElementById(colorId).remove();
+        colors.splice(colorId,1);
+        createDom();
+    }
+
+
+    function update(colorId) {
+            let value = document.getElementById('student').value;
+
+    }
+
+
+</script>
+</html>

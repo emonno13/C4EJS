@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>Learning Object</p>
+    </div>
+</body>
+<script>
+    /* Create */
+    // using object literal syntax
+    let student01 = {
+        name:'khanh',
+        age : 24
+    }
+
+    // using the ‘new’ keyword with Object() constructor
+    let studen02 = new Object();
+    studen02.name = 'nhat';
+    studen02.age = 24;
+
+    // Using Object.assign()
+    const nameObj = { name: 'Nam' };
+    const ageObj = { age: 24 };
+    let student03 = Object.assign({},nameObj,ageObj);
+    console.log(student03)
+
+    // Using ES6 classes
+    class student {
+        constructor(fname, lname) {
+            this.name = fname;
+            this.age = lname;
+        }
+    }
+    let student04 = new Person('long', 24);
+
+    // using spread operator
+    let temp = {};
+    let student05 = {...temp,name:'vi',age:25};
+
+    // using Object create
+
+
+    /* Read */
+    console.log(student01.name);
+    console.log(student01['name']);
+
+    /*Update*/
+    student01.name = 'Khang';
+
+</script>
+</html>
