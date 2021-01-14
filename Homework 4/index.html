@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Object</h1>
+    </div>
+</body>
+<script>
+    // let debug = 'The process of figuring out why your program has a certain error and how to fix it';
+    // let done  = 'When your task is complete, the only thing you have to do is to wait for users to use it (no additional codes or actions needed)';
+    
+    let directory = {
+        debug : 'The process of figuring out why your program has a certain error and how to fix it',
+        done: 'When your task is complete, the only thing you have to do is to wait for users to use it (no additional codes or actions needed)'
+    };
+    let x = '';
+    // console.log(x==='debug')
+        // switch (x) {
+        //     case 'debug':
+        //         alert(debug)
+        //         break;
+        //     case 'done':
+        //         alert(done);
+        //         break;
+        //     default:
+        //         alert(`Not found ${x}!!!`);
+        //         break;
+        // }
+    while (x !== 'out') {
+        x = prompt('Enter');
+        let isX = false;
+        console.log(directory)
+        for(prop in directory){
+            if(prop === x){
+                alert(directory[prop]);
+                isX = true;
+            }
+        }
+
+        if(!isX){
+            alert(`Not found ${x}`);
+            x = prompt('Enter');
+            let content = prompt('Define X');
+            directory[x] = content;
+            alert('Done');
+        }
+        isX = false
+    }
+</script>
+</html>

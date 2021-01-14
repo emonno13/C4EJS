@@ -7,7 +7,7 @@
 </head>
 <body>
     <div>
-        <input type="text" id="student">
+        <input type="text" id="colorItem">
         <button onclick="add()">
             Add
         </button>
@@ -19,7 +19,7 @@
 <script>
     const basicColor = ['pink','purple','red','orange','yellow','green','cyan','blue','brown','white','black','grey'];
     let colors = ['red','green','yellow'];
-    let colorId = 0;
+    // let colorId = 0;
 
     function createDom(){
         let html = '';
@@ -54,7 +54,7 @@
     createDom();
 
     // Tạo sự kiện khi nhấn phím enter ở ô input
-    document.getElementById("student").addEventListener('keyup',function (event) {
+    document.getElementById("colorItem").addEventListener('keyup',function (event) {
           if (event.keyCode === 13) {
             event.preventDefault();
             add();
@@ -62,7 +62,7 @@
     })
 
     function add() {
-            let value = document.getElementById('student').value;
+            let value = document.getElementById('colorItem').value;
             value = value.replace( /(<([^>]+)>)/ig, '');
 
             // Nếu giá trị ở ô input không phải là màu hoặc ko có giá trị nào được nhập thì xuất ra
@@ -75,15 +75,20 @@
     }
 
     function remove(colorId) {
-        document.getElementById(colorId).remove();
+        // document.getElementById(colorId).remove();
         colors.splice(colorId,1);
         createDom();
     }
 
 
     function update(colorId) {
-            let value = document.getElementById('student').value;
-
+            let value = document.getElementById('colorItem').value;
+            if(!isColorInBasic(value) || !value) {
+              alert('Please input a color !!');
+              return;
+            }
+            colors[colorId] = value;
+            createDom();
     }
 
 
