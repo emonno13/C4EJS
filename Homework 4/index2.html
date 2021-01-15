@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="firstName">
+        <input type="text" id="lastName">
+        <input type="text" id="className">
+        <input type="text" id="schoolName">
+
+        <button onclick="add()">
+            Add
+        </button>
+        <ul id='students'>
+        </ul>
+    </div>
+</body>
+
+<script>
+    let students = [{firstName:'Khanh',lastName:'Nguyen',className:12,schoolName:'TVO'},{firstName:'Khanh',lastName:'Nguyen',className:12,schoolName:'TVO'}];
+    // let colorId = 0;
+
+    function createDom(){
+        let html = '';
+            for( let i = 0;i < students.length; i++){
+            html += 
+                `
+                <li id="${i}">
+                    <button onClick="remove(${i})">Remove</button>
+                    <button onClick="update(${i})">Update</button>
+                    <p id="${i}-content" style="color:${students[i]};">
+                        ${students[i].firstName} - ${students[i].lastName} 
+                        - ${students[i].className} - ${students[i].schoolName}
+                    </p>
+                </li>
+                `;
+            document.getElementById("students").innerHTML = html;
+            }
+    }
+
+
+    // Tạo danh sách 
+    createDom();
+
+    // Tạo sự kiện khi nhấn phím enter ở ô input
+    document.getElementById("firstName").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+    document.getElementById("lastName").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+    document.getElementById("className").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+    document.getElementById("schoolName").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+
+    function add() {
+            let firstName = document.getElementById('firstName').value;
+            firstName = firstName.replace( /(<([^>]+)>)/ig, '');
+
+            let lastName = document.getElementById('lastName').value;
+            lastName = lastName.replace( /(<([^>]+)>)/ig, '');
+
+            let className = document.getElementById('className').value;
+            className = className.replace( /(<([^>]+)>)/ig, '');
+
+            let schoolName = document.getElementById('schoolName').value;
+            schoolName = schoolName.replace( /(<([^>]+)>)/ig, '');
+
+            // Nếu giá trị ở ô input không phải là màu hoặc ko có giá trị nào được nhập thì xuất ra
+            if(!firstName || !lastName || !className || !schoolName) {
+              alert('Please fill all');
+              return;
+            }
+            students.push({firstName,lastName,className,schoolName});
+            createDom();
+    }
+
+    function remove(studentId) {
+        // document.getElementById(studentId).remove();
+        students.splice(studentId,1);
+        createDom();
+    }
+
+
+    function update(id) {
+            let firstName = document.getElementById('firstName').value;
+            firstName = firstName.replace( /(<([^>]+)>)/ig, '');
+
+            let lastName = document.getElementById('lastName').value;
+            lastName = lastName.replace( /(<([^>]+)>)/ig, '');
+
+            let className = document.getElementById('className').value;
+            className = className.replace( /(<([^>]+)>)/ig, '');
+
+            let schoolName = document.getElementById('schoolName').value;
+            schoolName = schoolName.replace( /(<([^>]+)>)/ig, '');
+
+            if(!firstName || !lastName || !className || !schoolName) {
+              alert('Please fill all');
+              return;
+            }
+
+            students[id].firstName = firstName ;
+            students[id].lastName = lastName ;
+            students[id].className = className ;
+            students[id].schoolName = schoolName ;
+
+            createDom();
+    }
+
+
+</script>
+</html>

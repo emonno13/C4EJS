@@ -11,45 +11,56 @@
     </div>
 </body>
 <script>
-    // let debug = 'The process of figuring out why your program has a certain error and how to fix it';
-    // let done  = 'When your task is complete, the only thing you have to do is to wait for users to use it (no additional codes or actions needed)';
-    
-    let directory = {
-        debug : 'The process of figuring out why your program has a certain error and how to fix it',
-        done: 'When your task is complete, the only thing you have to do is to wait for users to use it (no additional codes or actions needed)'
-    };
-    let x = '';
-    // console.log(x==='debug')
-        // switch (x) {
-        //     case 'debug':
-        //         alert(debug)
-        //         break;
-        //     case 'done':
-        //         alert(done);
-        //         break;
-        //     default:
-        //         alert(`Not found ${x}!!!`);
-        //         break;
-        // }
-    while (x !== 'out') {
-        x = prompt('Enter');
-        let isX = false;
-        console.log(directory)
-        for(prop in directory){
-            if(prop === x){
-                alert(directory[prop]);
-                isX = true;
-            }
-        }
+    // 1. For and Object
+    // const product = {
+    //     name: "Xiaomi rice cooker",
+    //     price: 1700,
+    //     brand: "Xiaomi",
+    //     color: "white"
+    // };
+    //1.1
+    // Property 
+    //1.2
+    // for (const x in product) {
+    //     console.log(`${x}: ${product[x]}`);
+    // }   
 
-        if(!isX){
-            alert(`Not found ${x}`);
-            x = prompt('Enter');
-            let content = prompt('Define X');
-            directory[x] = content;
-            alert('Done');
-        }
-        isX = false
-    }
+    // 2
+    // const task = {
+    //     subject: "Implement login feature",
+    //     createdBy: "Hoang Ngoc Duc",
+    //     assignTo: "Nguyen Phuong Nam",
+    //     dueDate: "2019-10-08T18:00:24+0000",
+    //     expectedHours: 0.5,
+    // };
+    // const { subject, createdBy, assignTo, dueDate, expectedHours} = task;
+    // console.log(subject, createdBy, assignTo, dueDate, expectedHours)
+
+    // 4.2
+    // let directory = {
+    //     debug : 'The process of figuring out why your program has a certain error and how to fix it',
+    //     done: 'When your task is complete, the only thing you have to do is to wait for users to use it (no additional codes or actions needed)'
+    // };
+    // let x = '';
+    // while (x !== 'out') {
+    //     x = prompt('Enter');
+    //     let isX = false;
+    //     console.log(directory)
+    //     for(prop in directory){
+    //         if(prop === x){
+    //             alert(directory[prop]);
+    //             isX = true;
+    //         }
+    //     }
+
+    //     if(!isX){
+    //         alert(`Not found ${x}`);
+    //         x = prompt('Enter');
+    //         let content = prompt('Define X');
+    //         directory[x] = content;
+    //         alert('Done');
+    //     }
+    //     isX = false
+    // }
 </script>
 </html>
