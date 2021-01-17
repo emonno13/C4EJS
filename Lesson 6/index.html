@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout - Flex</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>  
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>  
+        <div>7</div>
+        <div>8</div>
+    </div>
+
+    <div class="flex-container">
+        <!-- 12 ô  -->
+        <div style="flex-grow: 4">1</div>
+        <div style="flex-grow: 8">2</div>
+        <!-- <div style="flex-grow: 4">3</div> -->
+        <!-- <div style="flex-basis: 200px">3</div> -->
+        <!-- <div style="align-self: center">3</div> -->
+    </div>
+</body>
+
+<style>
+/* Flex for Content */
+.flex-container {
+  display: flex;
+  /* Hướng các items */
+  flex-direction: row;
+  /* khi có nhiều item sẽ dc wrap lại */
+  flex-wrap: wrap; 
+  /* flex-flow: row wrap; */
+  /* căn theo chiều của flex-direction */
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  /* align-content: center; */
+  background-color: black;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
+</html>

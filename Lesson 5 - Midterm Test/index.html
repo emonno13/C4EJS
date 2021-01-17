@@ -8,11 +8,207 @@
 <body>
     <div>
         <h2>Midterm Test</h2>
+        <div>
+            <input type="text" id="name">
+            <input type="text" id="age">
+            <button onclick="add()">Add user</button>
+        </div>
+        <div>
+            <input type="text" id="search">
+            <button onclick="searchByName()">Search by name</button>
+            <button onclick="searchByAge()">Search by age</button>
+            <button onclick="searchAll()">Search all</button>
+            <button onclick="restart()">Restart user list</button>
+        </div>
+      
+        <ul id='users'></ul>
     </div>
 </body>
 <script>
 
+/*
+    1. Kiểm tra kiến thức : (làm xong chụp lại màn hình kết quả số điểm )
+       https://www.tutorialsteacher.com/online-test/javascript-test
+       https://www.w3schools.com/js/js_quiz.asp
+    
+    2. Cho mảng (array) X :
+      const X = ["Long",12,"Nhat",11,14,"Minh","Hoang"]
+      Tạo 1 mảng mới tên users là tập hợp các object có dạng { name : 'xxxx', age : 11111 } từ tổ hợp các phần tử trong array X
+      VD: users = [{name: "Long", age: 14}, {name: "Long", age: 11} , ...]
+    
+    3. Từ mảng users vừa tọa được ở trên
+    Hiển thị trên màn hình wed dánh sách user bao gồm name và age
+    Tạo 2 ô input cho name và age
+    Tạo button thêm user
+    Tạo button xóa user trên mỗi user trong list
+    Tạo button cập nhập user ( với dữ liệu lấy từ ô input ) trên mỗi user trong list
+    Tạo ô input cho việc search user
+    Tạo button "search by name" - tìm user có name giống search input -> cập nhập lại user list trên màn hình 
+    Tạo button "search by age" - tìm user có age giống search input -> cập nhập lại user list trên màn hình 
+    Tạo button "search all" - khi nhấn nút sẽ lấy nội dung cần tìm từ input -> cập nhập lại danh sách user trên màn hình không phần biệt name hoặc age
+*/
 
+    const X = ["Long",12,"Nhat",11,14,"Minh","Hoang"];
+
+    // Tách mảng X thành mảng xAge và xName
+    const xAge = [];
+    const xName = [];
+
+    for(let i = 0; i < X.length; i++){
+        if(Number(X[i])) {
+            xAge.push(X[i]);
+        } else {
+            xName.push(X[i]);
+        };
+    };
+
+    // Tạo mảng users 
+    const users = [];
+    for(let i=0; i < xName.length; i++){
+        for(let j = 0; j < xAge.length; j++){
+            // Tạo phần tử con của mảng users
+            let child = {};
+            child.name = xName[i];
+            child.age = xAge[j];
+            users.push(child);
+        };
+    };
+
+    // Viết hàm " tạo danh sách users "
+    function createDom(){
+        let html = '';
+            for( let i = 0;i < users.length; i++){
+            html += 
+                `
+                <li id="${i}">
+                    <button onClick="remove(${i})">Remove</button>
+                    <button onClick="update(${i})">Update</button>
+                    <p id="${i}-content">
+                        Name: ${users[i].name} - Age : ${users[i].age}
+                    </p>
+                </li>
+                `;
+            }
+            document.getElementById("users").innerHTML = html;
+    };    
+
+    // Tạo danh sách users
+    createDom();
+
+    // Tạo sự kiện nhấn enter ở các ô input
+    document.getElementById("name").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+    document.getElementById("age").addEventListener('keyup',function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            add();
+        }   
+    })
+
+    // Thêm user
+    function add() {
+            let name = document.getElementById('name').value;
+            name = name.replace( /(<([^>]+)>)/ig, '');
+
+            let age = document.getElementById('age').value;
+            age = age.replace( /(<([^>]+)>)/ig, '');
+
+            if(!name || !age) {
+              alert('Please fill all');
+              return;
+            }
+            users.push({name, age});
+            createDom();
+    };
+
+    // Xóa user
+    function remove(id) {
+        users.splice(id,1);
+        createDom();
+    };
+
+    // Cập nhập user
+    function update(id) {
+            let name = document.getElementById('name').value;
+            name = name.replace( /(<([^>]+)>)/ig, '');
+
+            let age = document.getElementById('age').value;
+            age = age.replace( /(<([^>]+)>)/ig, '');
+
+            if(!name || !age) {
+              alert('Please fill all');
+              return;
+            }
+
+            users[id].name = name ;
+            users[id].age = age ;
+
+            createDom();
+    }    
+
+    // tạo mảng nhận kết quả sau khi tìm kiếm
+    let searchResult = []
+
+    // tạo danh sách user từ kết quả tìm kiếm
+    function createSearchDom(){
+        let html = '';
+            for( let i = 0;i < searchResult.length; i++){
+                html += 
+                `
+                <li id="${i}">
+                    <button onClick="remove(${i})">Remove</button>
+                    <button onClick="update(${i})">Update</button>
+                    <p id="${i}-content">
+                        Name: ${searchResult[i].name} - Age : ${searchResult[i].age}
+                    </p>
+                </li>
+                `;
+            }
+            document.getElementById("users").innerHTML = html;
+    };  
+
+    // tìm user bằng name
+    function searchByName() {
+        searchResult = [];
+        let keyword =  document.getElementById('search').value;
+        for (let i = 0; i < users.length; i++) {
+            if(users[i].name.toLowerCase() === keyword.toLowerCase()) {
+                searchResult.push(users[i]);
+            }
+        }
+        createSearchDom();
+    }
+
+    function searchByAge() {
+        searchResult = [];
+        let keyword =  document.getElementById('search').value;
+        for (let i = 0; i < users.length; i++) {
+            if(users[i].age.toString().toLowerCase() === keyword.toLowerCase()) {
+                searchResult.push(users[i]);
+            }
+        }
+        createSearchDom();
+    }
+    
+    function searchAll() {
+        searchResult = [];
+        let keyword =  document.getElementById('search').value;
+        for (let i = 0; i < users.length; i++) {
+            if(users[i].name.toLowerCase() === keyword.toLowerCase() 
+                || users[i].age.toString().toLowerCase() === keyword.toLowerCase()) {
+                searchResult.push(users[i]);
+            }
+        }
+        createSearchDom();
+    }    
+
+    function restart() {
+        createDom();
+    }
 
 </script>
 </html>
