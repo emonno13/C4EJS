@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex;justify-content: center;align-items: center;">
+            <p>One</p>
+        </div>
+        <div>Two</div>
+        <div>Three</div>
+    </div>
+</body>
+<style>
+body {
+    margin: 0;
+}
+.container {
+    display: flex;
+    background: red;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; /* định hướng item theo chiều ngược với flex-direction */
+    height: 100vh; /* vh là lấy chiều cao của màn hình*/
+    /* width: 100vw; */
+}
+
+.container > div {
+    height: 100px;
+    width: 20vw;
+    background-color: white;
+}
+
+</style>
+</html>

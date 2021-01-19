@@ -1,0 +1,26 @@
+/* inline-style -- id -- class -- tag */
+
+/* Style for Tag */
+body {
+    background-color: papayawhip;
+}
+p {
+    color: black;
+}
+
+/* Style for ID */
+#one {
+    color: red;
+}
+#three_id {
+    color:orange;
+}
+
+/* Style for Class */
+.two {
+    color: blue;
+}
+.three_class {
+    color: green;
+    border:2px solid rgb(71, 255, 148);
+}

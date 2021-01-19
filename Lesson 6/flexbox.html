@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout - Flex</title>
 </head>
-<body>
-    <div class="flex-container">
+<body style="background: red">
+    <div class="container">
         <div>1</div>
         <div>2</div>
         <div>3</div>  
@@ -14,13 +14,13 @@
         <div>5</div>
         <div>6</div>  
         <div>7</div>
-        <div>8</div>
+        <p>haha</p>
     </div>
 
-    <div class="flex-container">
+    <div class="container">
         <!-- 12 ô  -->
-        <div style="flex-grow: 4">1</div>
-        <div style="flex-grow: 8">2</div>
+        <div style="width: 100px;">1</div>
+        <!-- <div style="flex-grow: 8">2</div> -->
         <!-- <div style="flex-grow: 4">3</div> -->
         <!-- <div style="flex-basis: 200px">3</div> -->
         <!-- <div style="align-self: center">3</div> -->
@@ -29,7 +29,7 @@
 
 <style>
 /* Flex for Content */
-.flex-container {
+.container {
   display: flex;
   /* Hướng các items */
   flex-direction: row;
@@ -41,15 +41,20 @@
   /* align-items: flex-start; */
   /* align-content: center; */
   background-color: black;
+  margin-top: 100px;
 }
 
-.flex-container > div {
+.container > div {
   background-color: #f1f1f1;
   width: 100px;
   margin: 10px;
   text-align: center;
   line-height: 75px;
   font-size: 30px;
+}
+
+.container > p {
+  color: red;
 }
 </style>
 </html>
