@@ -1,5 +1,5 @@
 const avatar = 'https://kpopthing.com/wp-content/uploads/2020/01/thumbnail.jpg';
-const userName = 'Khanh Nguyen'
+const userName = 'Khanh Nguyen';
 const news = [
     { title: 'Title 01', content: 'Nice to meet you !', avatar, userName }
 ]

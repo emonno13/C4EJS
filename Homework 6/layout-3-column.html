@@ -13,7 +13,8 @@
             <div class="child"></div>
             <div class="child"></div>
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+        </div>
     </div>
 </body>
 <style>
@@ -38,6 +39,7 @@ body {
 .content {
     background-color: green;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     height: 60vh;
     width: 90vw;
@@ -55,5 +57,25 @@ body {
     height: 10vh;
     width: 90vw;
 }
+@media (max-width: 768px) {
+    .content {
+        background-color: green;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        height: 60vh;
+        width: 90vw;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .content .child{
+        height: 30%;
+        width: 90%;
+        background-color: orange;
+        /* align-self: center; */
+    }
+}
+
 </style>
 </html>

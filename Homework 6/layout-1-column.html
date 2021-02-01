@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="contain">
-        <div class="header"></div>
+    <div class="container">
+        <div class="header">
+            <div class="child"></div>
+        </div>
         <div class="content"></div>
         <div class="footer"></div>
     </div>
@@ -16,7 +18,7 @@
 body {
     margin: 0;
 }
-.contain {
+.container {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -31,6 +33,11 @@ body {
     height: 10vh;
     width: 90vw;
 }
+.header .child {
+    height: 20px;
+    width: 50%;
+    background-color: black;
+}
 .content {
     background-color: green;
     display: flex;
@@ -44,6 +51,17 @@ body {
     display: flex;
     height: 10vh;
     width: 90vw;
+}
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+    } 
 }
 </style>
 </html>
