@@ -27,9 +27,12 @@
 
  /**
   * Callback && Async Callback
-    Callback là một hàm sẽ được thực hiện sau khi một hàm khác đã thực hiện xong
-     Trong Javascript, functions là objects,do đó nó có thể nhận tham số là function, và cũng có thể trả về một function. 
-     Vì vậy bất cứ function nào được truyền vào như một tham số và được gọi sau đó sẽ có tên là callback function.
+    Callback là một function (hàm) sẽ được thực hiện sau khi một function khác đã thực hiện xong
+    Trong Javascript, functions là objects,do đó nó có thể nhận tham số là function, và cũng có thể trả về một function. 
+            Bất kì function nào được truyền dưới dạng một argument ( tham số ) được gọi là một callback function.
+            Các function có khả năng nhận vào function khác được gọi là higher - order function ( HOC ).
+                Cách 1: function(){}  
+                Cách 2 : () => {}
 */
 // function doHomework(subject, callback) {
 //     alert(`Starting my ${subject} homework.`);
@@ -112,6 +115,11 @@ function sum(a, b, callback) {
     return callback(result);
 };
 
+sum(1, 2, function(data) {
+    const result = data;
+    console.log(result);
+});
+
 sum(1, 2, data => {
     const result = data;
     console.log(result);
@@ -140,14 +148,14 @@ sum02(1, 2)
     .then((result) => {
         return result + result;
     })
-    .then(result => {
-        return result + result;
+    .then(result1 => {
+        return result1 + result1;
     })
-    .then(result => {
-        return result + result;
+    .then(result2 => {
+        return result2 + result2;
     })
-    .then(result => {
-        console.log(result)
+    .then(result3 => {
+        console.log(result3)
     })
     .catch((err) => {
         console.log(err)
