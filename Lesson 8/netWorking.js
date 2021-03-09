@@ -33,10 +33,14 @@ const requestOptions = {
 };
 
 function addUser(){
-    fetch(baseURL+'Users', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data));
+    // fetch(baseURL+'Users', requestOptions)
+    //     .then(response => response.json())
+    //     .then(data => console.log(data));
+    const response = await fetch(baseURL + 'Users', requestOptions)
+    const data = await response.json()
+    console.log(data)
 }
 
 // getUsers();
 getUsersWithAsync();
+addUser();
