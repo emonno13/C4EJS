@@ -1,13 +1,16 @@
-/**
- * Async
-    Ex: http://latentflip.com/loupe/
 
- */
 
 /**
  * ServerSide - ClientSide
-    Ex: https://blog.bitsrc.io/progressive-rendering-for-better-web-app-performance-22db0d2cd80
+        Ex: https://blog.bitsrc.io/progressive-rendering-for-better-web-app-performance-22db0d2cd80
+    Server-side rendering
+        https://www.youtube.com/watch?v=0bvo6UKkNDA
+    Client-side rendering
+        https://www.youtube.com/watch?v=4-Lel1oaV7M
  */
+
+
+/** Fetch in JS */
 
 const baseURL = 'https://5da3320c76c28f0014bbe777.mockapi.io/'
 
@@ -17,9 +20,9 @@ function getUsers() {
 }      
 
 async function getUsersWithAsync() {
-    const response = await fetch(baseURL+'Users/1');
+    const response = await fetch(baseURL+'Users');
     console.log(await response.json());
-} 
+}
 
 const requestOptions = {
     method: 'POST',
@@ -36,4 +39,4 @@ function addUser(){
 }
 
 // getUsers();
-// getUsersWithAsync();
+getUsersWithAsync();
